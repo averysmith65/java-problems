@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+	<meta charset="utf-8">
+	<script>
+		var hands = ['rock', 'paper', 'scissors'];
+		function getHand() {
+			return hands[Math.floor(Math.random()*3)];
+		}
+		var Sheldon = {
+			name: "Sheldon",
+			getHand: function() {
+				return hands[Math.floor(Math.random()*3)];
+			}
+		}
+		var Raj = {
+			name: "Raj",
+			getHand: function() {
+				return hands[Math.floor(Math.random()*3)];
+		  }
+	  }
+		function playRound(human, computer) {
+		  var winner;
+			humanHand = human.getHand();
+			computerHand = computer.getHand();
+			if (humanHand == "rock") {
+				if (computerHand == "paper") {
+					winner = computer;
+				} else if (computerHand == "scissors") {
+					winner = human;
+				} 
+			} else if (humanHand == "paper") {
+			  	if (computerHand == "scissors") {
+			  		winner = computer;
+			  	} else if (computerHand == "rock") {
+			  		winner = human;
+			  	}
+			} else if (humanHand == "scissors") {
+				if (computerHand == "paper") {
+					winner = human;
+				} else if (computerHand == "rock") {
+					winner = computer;
+				}
+			}
+			console.log(human.name + " played " + humanHand + ". " + computer.name + " played " + computerHand);
+			if (winner) {console.log("The winner was " + winner.name); } else { console.log("It's a tie");}
+			return winner;
+		} // end function playRound()
+		winner = playRound(Sheldon, Raj);
+		function playGame(player1, player2, playUntil) {
+			var player1Wins = 0;
+			var player2Wins = 0;
+			var handWinner;
+			var overallWinner;
+			var roundsPlayed = 0;
+			while (player1Wins < playUntil && player2Wins < playUntil) {
+				roundsPlayed++;
+				console.log("Round " + roundsPlayed + "!")
+				handWinner = playRound(player1,player2);
+				if (handWinner == player1) {
+					player1Wins++;
+				} else if (handWinner == player2) {
+					player2Wins++;
+				} 
+				if (player1Wins == playUntil) {
+					overallWinner = player1;
+				} else {
+					overallWinner = player2;
+				}
+				console.log("Score: " + player1.name + ":" + player1Wins + ", " + player2.name + ":" + player2Wins);
+			}
+		return overallWinner.name;
+		} // end function playGame
+		victoriousPlayer = playGame(Sheldon, Raj, 5);
+		console.log("The overall winner was " + victoriousPlayer);
+	</script>
+</head>
+<body>
+</body>
+</html>

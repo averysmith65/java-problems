@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>gratuity</title>
+	<meta charset="utf-8">
+	<script>
+		var billAmount = prompt( "what is your bill total? ");
+		billAmount = parseFloat(billAmount)
+		function gratuity(bill){
+			tip = bill * 0.2 
+			return tip
+		}
+
+
+		function totalWithGrat(bill){
+			totalamount = gratuity(billAmount) + bill
+			return totalamount
+		}
+		console.log(" your total including gratuity is " + totalWithGrat(billAmount))
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

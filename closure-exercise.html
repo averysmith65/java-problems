@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>closure Exercise</title>
+	<meta charset="utf-8">
+	<script>
+		function outer () {
+			var a = 'my awesome string';
+			var b = {
+				name: 'my awesome object'
+			}
+			console.log(a);
+			console.log(b.name);
+
+			function inner(a, b) {
+				console.log(a);
+				console.log(b.name);
+				a = 'yo, yo, yo';
+				b = { name: 'ho, ho, ho'}
+				console.log(a);
+				console.log(b.name);
+			}
+
+			inner (a, b); 
+			console.log(a);
+			console.log(b.name);
+		}
+
+		outer();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
